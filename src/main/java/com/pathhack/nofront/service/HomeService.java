@@ -14,15 +14,19 @@ public class HomeService {
     private final HomeRepository homeRepository;
 
     @Transactional
-    private Long join(Member member){
+    public Long join(Member member){
         homeRepository.save(member);
         return member.getId();
     }
 
     @Transactional
-    private void updateScore(String nickName, Long plusScore){
-        Member member = homeRepository.findOne(nickName);
-        member.setScore(member.getScore()+plusScore);
+    public void updateScore(Member targetMember, Long plusScore){
+        //Member member = homeRepository.findOne(targetMember.getId());
+        targetMember.setScore(targetMember.getScore()+plusScore);
+    }
 
+    @Transactional
+    public void updateTotal(){
+        homeRepository.findOne(1L).setTotal(homeRepository.findOne(1L).getTotal() + 1L);
     }
 }

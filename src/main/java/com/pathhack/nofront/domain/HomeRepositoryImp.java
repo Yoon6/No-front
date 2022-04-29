@@ -20,8 +20,8 @@ public class HomeRepositoryImp implements HomeRepository{
     }
 
     @Override
-    public Member findOne(String nickName) {
-        return em.find(Member.class, nickName);
+    public Member findOne(Long id) {
+        return em.find(Member.class, id);
     }
 
 
