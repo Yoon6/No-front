@@ -27,11 +27,11 @@ public class HomeController {
         return "object";
     }
 
-    @GetMapping("/game")
+    @GetMapping("/game1")
     public String getGamePage(@RequestParam("nickname") String nickname, Model model) {
         model.addAttribute("nickname", nickname);
 
-        return "game";
+        return "game1";
     }
 
     @PostMapping("/join")

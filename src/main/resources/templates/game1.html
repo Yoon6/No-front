@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>대기</title>
+    <title>게임</title>
     <style>
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -85,115 +85,15 @@
         img {
             margin: 10px;
         }
-        #messageTextArea {
-            background-color: #FEFFEB;
-            font-family: kopub-medium;
-        }
-        #nick {
-            font-family: kopub-medium;
-        }
     </style>
 </head>
 <body>
-
 <div id="title">
     <div id="coldbreaking">
         <span id="cold">COLD </span> <span id="breaking">BREAKING</span>
     </div>
 </div>
-<!--<form th:action="@{/join}" method="post">-->
-<!--    <input type="text" name="nickname" placeholder="Nickname">-->
-<!--    <input type="submit" value="Join"/>-->
-<!--</form>-->
-<div style="margin: 20px;"></div>
-<span id="nick" th:text="${nickname}"></span>
-<div style="margin: 5px;"></div>
+<span th:text="${nickname}"></span>님 안녕하세요.
 
-<!--<form>-->
-<!--    &lt;!&ndash; 송신 메시지 작성하는 창 &ndash;&gt;-->
-
-<!--    <input id="textMessage" type="text">-->
-
-<!--    &lt;!&ndash; 송신 버튼 &ndash;&gt;-->
-
-<!--    <input onclick="connect()" value="Send" type="button">-->
-<!--</form>-->
-
-<br />
-
-<!-- 결과 메시지 보여주는 창 -->
-
-<textarea id="messageTextArea" rows="10" cols="50"></textarea>
-
-
-
-<script type="text/javascript">
-
-    //WebSocketEx는 프로젝트 이름
-
-    //websocket 클래스 이름
-
-    var webSocket = new WebSocket("ws://localhost:8080/room");
-
-    var messageTextArea = document.getElementById("messageTextArea");
-
-    var nickName = document.getElementById("nick");
-
-    //웹 소켓이 연결되었을 때 호출되는 이벤트
-
-    webSocket.onopen = function(message){
-        messageTextArea.value += "접속 완료!\n";
-    };
-
-    //웹 소켓이 닫혔을 때 호출되는 이벤트
-
-    webSocket.onclose = function(message){
-
-        messageTextArea.value += "Server Disconnect...\n";
-
-    };
-
-    //웹 소켓이 에러가 났을 때 호출되는 이벤트
-
-    webSocket.onerror = function(message){
-        messageTextArea.value += "error...\n";
-    };
-
-    //웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트
-
-    webSocket.onmessage = function(message){
-        messageTextArea.value += message.data+"\n";
-        if (message.data === "6명이 되었습니다.") {
-            console.log(nickName);
-            window.location.replace("http://localhost:8080/game?nickname=" + nickName.innerText);
-        }
-    };
-
-    //Send 버튼을 누르면 실행되는 함수
-
-    function sendMessage(){
-
-        var message = document.getElementById("textMessage");
-
-        messageTextArea.value += "Send to Server => "+message.value+"\n";
-
-        //웹소켓으로 textMessage객체의 값을 보낸다.
-
-        webSocket.send(message.value);
-
-        //textMessage객체의 값 초기화
-
-        message.value = "";
-
-    }
-    //웹소켓 종료
-
-    function disconnect(){
-
-        webSocket.close();
-
-    }
-
-</script>
 </body>
 </html>

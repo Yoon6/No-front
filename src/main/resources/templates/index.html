@@ -102,10 +102,10 @@
             color: #1266C9;
             font-family: kopub-medium;
             font-size: 18px;
-            margin-top: 60px;
+            margin-top: 30px;
         }
 
-        input{
+        #inputUrl {
             height: 1.3rem;
             width: 30rem;
             border: 2px solid #1266C9;
@@ -114,6 +114,17 @@
             padding-left: 10px;
             color: #1266C9;
             font-family: kopub-medium;
+        }
+        #nickname {
+            height: 2rem;
+            width: 10rem;
+            border: 2px solid #1266C9;
+            border-radius: 1rem;
+            background-color: #FEFFEB;
+            padding-left: 10px;
+            color: #1266C9;
+            font-family: kopub-medium;
+            text-align: center;
         }
 
     </style>
@@ -127,10 +138,12 @@
     <h3 id="description">딱딱한 분위기를 풀기위한 아이스 브레이킹 게임</h3>
 </div>
 
-<div style="margin: 80px"></div>
-<!--<input id="nickname" type="text" placeholder="Nickname" name="nickname"/> <br/>-->
+<!--<div style="margin: 80px"></div>-->
+<div style="text-align: center; margin: 40px">
+    <input id="nickname" type="text" placeholder="Nickname" name="nickname"/> <br/>
+</div>
 <div id="images">
-    <a href="/object?nickname=" ><img width="250px" src="/img/img_2.png"/></a>
+    <a onclick="link()"><img width="250px" src="/img/img_2.png"/></a>
     <a onclick="link()"><img width="250px" src="/img/img.png"/></a>
     <a onclick="link()"><img width="250px" src="/img/img_1.png"/></a>
 </div>
@@ -145,12 +158,12 @@
 <!--</form>-->
 
 
-<div id="url">초대 url : <span><input type="text" value="www.nofront.com/Q23wweD23"/></span></div>
+<div id="url">초대 url : <span><input id="inputUrl" type="text" value="www.nofront.com/Q23wweD23"/></span></div>
 
 <script>
     function link(){
         let elementById = document.getElementById("nickname");
-        window.location.href = "/object?nickname=" + elementById.innerText;
+        window.location.href = "/object?nickname=" + elementById.value;
     }
 
 </script>
