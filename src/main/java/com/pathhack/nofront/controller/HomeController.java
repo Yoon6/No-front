@@ -23,6 +23,12 @@ public class HomeController {
         return "object";
     }
 
+    @GetMapping("/game")
+    public String getGamePage() {
+        return "game";
+    }
+
+
     @PostMapping("/join")
     public String postNickname(@RequestParam("nickname") String nickname) {
 
