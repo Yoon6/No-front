@@ -236,11 +236,9 @@
     webSocket.onmessage = function(message){
         console.log(message);
 
-        if (message.data === "win") {
+        if (message.data === "success") {
             window.location.replace("http://localhost:8080/success");
-
-        } else {
-
+        } else if (message.data === "fail") {
             window.location.replace("http://localhost:8080/fail");
         }
     };
