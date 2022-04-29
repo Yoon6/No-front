@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>대기</title>
 </head>
 <body>
 
@@ -13,18 +13,16 @@
 <!--    <input type="text" name="nickname" placeholder="Nickname">-->
 <!--    <input type="submit" value="Join"/>-->
 <!--</form>-->
+<p id="nick" th:text="${nickname}"></p>
 
 <form>
-
     <!-- 송신 메시지 작성하는 창 -->
 
     <input id="textMessage" type="text">
 
     <!-- 송신 버튼 -->
 
-    <input onclick="sendMessage()" value="Send" type="button">
-
-
+    <input onclick="connect()" value="Send" type="button">
 </form>
 
 <br />
@@ -44,6 +42,8 @@
     var webSocket = new WebSocket("ws://localhost:8080/room");
 
     var messageTextArea = document.getElementById("messageTextArea");
+
+    var nickName = document.getElementById("nick");
 
     //웹 소켓이 연결되었을 때 호출되는 이벤트
 
@@ -69,6 +69,10 @@
 
     webSocket.onmessage = function(message){
         messageTextArea.value += message.data+"\n";
+        if (message.data === "6명이 되었습니다.") {
+            console.log(nickName);
+            window.location.replace("http://localhost:8080/game?nickname=" + nickName.innerText);
+        }
     };
 
     //Send 버튼을 누르면 실행되는 함수
@@ -88,7 +92,6 @@
         message.value = "";
 
     }
-
     //웹소켓 종료
 
     function disconnect(){
