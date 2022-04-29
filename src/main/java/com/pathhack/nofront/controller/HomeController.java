@@ -27,6 +27,16 @@ public class HomeController {
         return "object";
     }
 
+    @GetMapping("/success")
+    public String getSuccessPage() {
+        return "success";
+    }
+
+    @GetMapping("/fail")
+    public String getFailPage() {
+        return "fail";
+    }
+
 
     @GetMapping("/game")
     public String getGamePage(@RequestParam("nickname") String nickname, Model model) {
