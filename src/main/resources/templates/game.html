@@ -25,25 +25,31 @@
             font: inherit;
             vertical-align: baseline;
         }
+
         /* HTML5 display-role reset for older browsers */
         article, aside, details, figcaption, figure,
         footer, header, hgroup, menu, nav, section {
             display: block;
         }
+
         body {
             line-height: 1;
         }
+
         ol, ul {
             list-style: none;
         }
+
         blockquote, q {
             quotes: none;
         }
+
         blockquote:before, blockquote:after,
         q:before, q:after {
             content: '';
             content: none;
         }
+
         table {
             border-collapse: collapse;
             border-spacing: 0;
@@ -53,6 +59,7 @@
             background-color: #1266C9;
             padding: 20px;
         }
+
         body {
             background-color: #FEFFEB;
         }
@@ -61,32 +68,39 @@
             src: url("/fonts/KoPubDotumLight.ttf");
             font-family: "kopub-light";
         }
+
         @font-face {
             src: url("/fonts/KoPubDotumBold.ttf");
             font-family: "kopub-bold";
         }
+
         @font-face {
             src: url("/fonts/KoPubDotumMedium.ttf");
             font-family: "kopub-medium";
         }
+
         #cold {
             font-family: kopub-bold;
             font-size: 30pt;
             color: white;
         }
+
         #breaking {
             font-family: kopub-bold;
             font-size: 30pt;
             color: #1266C9;
             text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
         }
+
         #coldbreaking {
             /*text-align: center;*/
         }
+
         #content {
             text-align: center;
             margin-top: 75px;
         }
+
         #blank {
             font-family: kopub-bold;
             font-size: 20pt;
@@ -94,14 +108,16 @@
             margin-top: 20pt;
             text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
         }
+
         #result {
             font-size: 50pt;
             text-align: center;
             font-family: kopub-bold;
             color: #1266C9;
         }
-        #getPick{
-            margin-top:20px;
+
+        #getPick {
+            margin-top: 20px;
         }
     </style>
 
@@ -110,19 +126,19 @@
 </head>
 <body>
 
-    <div id="title">
-        <div id="coldbreaking">
-            <span id="cold">COLD </span> <span id="breaking">BREAKING</span>
-        </div>
+<div id="title">
+    <div id="coldbreaking">
+        <span id="cold">COLD </span> <span id="breaking">BREAKING</span>
     </div>
+</div>
 <!--    <span th:text="${nickname}"></span>님 안녕하세요.-->
-    <div id="content">
+<div id="content">
 
     <img
             src="img\sample1.PNG"
             width="400"
             height="300"
-        />
+    />
     <video
             id="myVideo"
             width="400"
@@ -135,68 +151,110 @@
             height="300"
             style="border: 1px solid #ddd"
     ></canvas
-    ><br />
+    >
+    <br/>
 
-<!--    <input type="button" value="get Video" onclick="{getVideo()}" />-->
-    <input class="btn btn-primary" id="getPick" type="button" value="get Pic" onclick="{takeSnapshot()}" /><br />
-    </div>
+    <!--    <input type="button" value="get Video" onclick="{getVideo()}" />-->
+    <input class="btn btn-primary" id="getPick" type="button" value="get Pic" onclick="{takeSnapshot()}"/><br/>
+</div>
 
-    <img
-            hidden="true"
-            id="img"
-            class="abc"
-            name="abc"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AAADj4+OxsbHU1NTs7OwTExNSUlK4uLhgYGDp6ekEBATz8/POzs5lZWX5+fktLS1sbGympqZzc3NFRUVAQEDa2trGxsY3NzeBgYFUVFSHh4dpaWmdnZ2rq6tycnIxMTGPj48RERG+vr4bGxskJCSYmJhERESEhIS3ls2+AAADzElEQVR4nO3b63aiMBiFYS1axYInPGtVrNP2/q9wSAKeIKGOFf3WvM+vCKYru6QkhLRWAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEYK2S/Do5t2u81Z3ees8uoE3+3YGrNe/H93AawTNzLHv9folCfu9B7b4SqvTdmcZQ9MXi+lz4UMbfY2Ps0sTp0fnKt+kU2yiMs4f2uprDM8SDtKjqty11umq09U07xcUJpyq8oe1jr7u04oaeDOVcD8Nw7AxOyaMkuLOPuYFu+R8VFEDb7ZOGvtHl0ZJaWMOujuplG7aifxEd6zuKbq0VzfTriq23J30vJsGc/9S9BzzgdeSEc9ZWX1hZYrjgrr7CtpfqlMScOOsvUm+MTPFwtrPcBFfShI2nLXD4+9gVlT7pYIEZXTC0aJVzC8bCz78z7QUzM9qLkZPlXByhx88eaqE7q6YmniR3xot/Ln3o19IQ1jCZnz6lNGPyx99ZSVsRrl7SNQsqSMq4brwLuu5K0lKODh0zs0yXg4O3dU9VMpJ2EsnK7N19rcXrNOxb+R6wJeTcGvynQ+M0/Soo56YhL6OEueOL/Xxlb2ilIRD603F02eG1ppCEppZa/vw2YviYdbqtj5nnVsLSbg676Lmin6lj4yx+jCw1BSS0EzLj5+zcWNgbqJfrhAyEqrFxNMV0c9sKBzrj3o1dWmpKyOhOtc6PRCPzDBR9/VHvcxhqSsiob5Gl+s0L/Pj3ad9cY1PiUj4WXyJvONgr0rvxZVFJPQt05bvQ53ZocPmiEg4ttxImqqOXr1QWb+KK4tIuLX1QXWH0Wvd7/bJqYSEvT+2aZla616ogkpoeYUoImHfdg3fs5mOKmyLf7CEhPrvMP9UocStub5yy8PonyMi4eJywM8ZZd01T0TCpWPKYtStV1lGwqljynL8gmVZXETCnn6OcFTWD1eWxRoRCc0bUHsrdV3bG1QZCUNXhHQNx9aLZSTU90rr0q+Xe7g6JSShbqbl1ZQ55676/AnNU35hQ/XbM8eGISkJ01e77dxxs9LmWBIWk1A/KSVjxvmrpk66C87xAkpMwtok3WE6P36pYfpu/c0VQE7CWid72bQfDL22N1xl+1P6zp0WghKazV95Jdu9RCWsTfPbgcZluzRkJUwyLs7yLcp3JEpLWKsFXrRVf4Gv28j7yRZ9eQm1oPnj/z8QmvAKJKzMf5Jw2vx906dKuHv9fbunSng3z5CwedeEZZvfKjEob+c/c+8Lq0zo3Yuc/4kCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEjzF0PmKp4KtBO5AAAAAElFTkSuQmCC"
-            crossorigin="anonymous"
-    />
-    <div id="blank">인식 결과</div>
-    <div id="result"></div>
+<img
+        hidden="true"
+        id="img"
+        class="abc"
+        name="abc"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AAADj4+OxsbHU1NTs7OwTExNSUlK4uLhgYGDp6ekEBATz8/POzs5lZWX5+fktLS1sbGympqZzc3NFRUVAQEDa2trGxsY3NzeBgYFUVFSHh4dpaWmdnZ2rq6tycnIxMTGPj48RERG+vr4bGxskJCSYmJhERESEhIS3ls2+AAADzElEQVR4nO3b63aiMBiFYS1axYInPGtVrNP2/q9wSAKeIKGOFf3WvM+vCKYru6QkhLRWAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEYK2S/Do5t2u81Z3ees8uoE3+3YGrNe/H93AawTNzLHv9folCfu9B7b4SqvTdmcZQ9MXi+lz4UMbfY2Ps0sTp0fnKt+kU2yiMs4f2uprDM8SDtKjqty11umq09U07xcUJpyq8oe1jr7u04oaeDOVcD8Nw7AxOyaMkuLOPuYFu+R8VFEDb7ZOGvtHl0ZJaWMOujuplG7aifxEd6zuKbq0VzfTriq23J30vJsGc/9S9BzzgdeSEc9ZWX1hZYrjgrr7CtpfqlMScOOsvUm+MTPFwtrPcBFfShI2nLXD4+9gVlT7pYIEZXTC0aJVzC8bCz78z7QUzM9qLkZPlXByhx88eaqE7q6YmniR3xot/Ln3o19IQ1jCZnz6lNGPyx99ZSVsRrl7SNQsqSMq4brwLuu5K0lKODh0zs0yXg4O3dU9VMpJ2EsnK7N19rcXrNOxb+R6wJeTcGvynQ+M0/Soo56YhL6OEueOL/Xxlb2ilIRD603F02eG1ppCEppZa/vw2YviYdbqtj5nnVsLSbg676Lmin6lj4yx+jCw1BSS0EzLj5+zcWNgbqJfrhAyEqrFxNMV0c9sKBzrj3o1dWmpKyOhOtc6PRCPzDBR9/VHvcxhqSsiob5Gl+s0L/Pj3ad9cY1PiUj4WXyJvONgr0rvxZVFJPQt05bvQ53ZocPmiEg4ttxImqqOXr1QWb+KK4tIuLX1QXWH0Wvd7/bJqYSEvT+2aZla616ogkpoeYUoImHfdg3fs5mOKmyLf7CEhPrvMP9UocStub5yy8PonyMi4eJywM8ZZd01T0TCpWPKYtStV1lGwqljynL8gmVZXETCnn6OcFTWD1eWxRoRCc0bUHsrdV3bG1QZCUNXhHQNx9aLZSTU90rr0q+Xe7g6JSShbqbl1ZQ55676/AnNU35hQ/XbM8eGISkJ01e77dxxs9LmWBIWk1A/KSVjxvmrpk66C87xAkpMwtok3WE6P36pYfpu/c0VQE7CWid72bQfDL22N1xl+1P6zp0WghKazV95Jdu9RCWsTfPbgcZluzRkJUwyLs7yLcp3JEpLWKsFXrRVf4Gv28j7yRZ9eQm1oPnj/z8QmvAKJKzMf5Jw2vx906dKuHv9fbunSng3z5CwedeEZZvfKjEob+c/c+8Lq0zo3Yuc/4kCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEjzF0PmKp4KtBO5AAAAAElFTkSuQmCC"
+        crossorigin="anonymous"
+/>
+<div id="blank">인식 결과</div>
+<div id="result"></div>
 
 
 <script>
-var myVideoStream = document.getElementById('myVideo')     // make it a global variable
-var myStoredInterval = 0
+    var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+    var myStoredInterval = 0
 
-getVideo();
+    getVideo();
 
-function getVideo(){
-navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-navigator.getMedia({video: true, audio: false},
+    function getVideo() {
+        navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+        navigator.getMedia({video: true, audio: false},
 
-  function(stream) {
-    myVideoStream.srcObject = stream
-    myVideoStream.play();
-},
+            function (stream) {
+                myVideoStream.srcObject = stream
+                myVideoStream.play();
+            },
 
- function(error) {
-   alert('webcam not working');
-});
-}
+            function (error) {
+                alert('webcam not working');
+            });
+    }
 
-function takeSnapshot() {
- var myCanvasElement = document.getElementById('myCanvas');
- var myCTX = myCanvasElement.getContext('2d');
- myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
- console.log(myCanvasElement.toDataURL());
+    function takeSnapshot() {
+        var myCanvasElement = document.getElementById('myCanvas');
+        var myCTX = myCanvasElement.getContext('2d');
+        myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
+        console.log(myCanvasElement.toDataURL());
 
-  var image = document.getElementsByClassName("abc");
-  image.src = myCanvasElement.toDataURL();
-  document.abc.src = myCanvasElement.toDataURL();
+        var image = document.getElementsByClassName("abc");
+        image.src = myCanvasElement.toDataURL();
+        document.abc.src = myCanvasElement.toDataURL();
 
-  const img = document.getElementById("img");
-         cocoSsd.load().then((model) => {
-           model.detect(img).then((predictions) => {
-             console.log("Redictions: ", predictions);
-             predictions.forEach((item) => {
-               console.log("class", item.class);
-               document.getElementById("result").innerHTML = item.class;
-             });
-           });
-         });
+        const img = document.getElementById("img");
+        cocoSsd.load().then((model) => {
+            model.detect(img).then((predictions) => {
+                console.log("Redictions: ", predictions);
+                predictions.forEach((item) => {
+                    console.log("class", item.class);
+                    document.getElementById("result").innerHTML = item.class;
+                    sendMessage(item.class);
+                });
+            });
+        });
 
-}
+    }
 
+    var webSocket = new WebSocket("ws://localhost:8080/room");
 
+    //웹 소켓이 연결되었을 때 호출되는 이벤트
+
+    webSocket.onopen = function(message){
+    };
+
+    //웹 소켓이 닫혔을 때 호출되는 이벤트
+
+    webSocket.onclose = function(message){
+    };
+
+    //웹 소켓이 에러가 났을 때 호출되는 이벤트
+
+    webSocket.onerror = function(message){
+    };
+
+    //웹 소켓에서 메시지가 날라왔을 때 호출되는 이벤트
+
+    webSocket.onmessage = function(message){
+        console.log(message);
+
+        if (message.data === "win") {
+            window.location.replace("http://localhost:8080/success");
+
+        } else {
+
+            window.location.replace("http://localhost:8080/fail");
+        }
+    };
+
+    //Send 버튼을 누르면 실행되는 함수
+
+    function sendMessage(answer){
+        webSocket.send(answer);
+    }
+    //웹소켓 종료
+
+    function disconnect(){
+        webSocket.close();
+    }
 
 
 </script>

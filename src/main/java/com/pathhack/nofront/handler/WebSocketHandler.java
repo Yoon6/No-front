@@ -17,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class WebSocketHandler extends TextWebSocketHandler {
     private final Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
+    private final Map<String, WebSocketSession> winnersMap = new ConcurrentHashMap<>();
     private int count;
 
     @Override
@@ -56,7 +57,24 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        super.handleTextMessage(session, message);
+        System.out.println(message.getPayload());
+        if (message.getPayload().equals("cell phone") && winnersMap.size() < 3) {
+            winnersMap.put(session.getId(), session);
+        }
+
+        if (winnersMap.size() == 3) {
+            sessions.values().forEach(s -> {
+                try {
+                    if (winnersMap.containsKey(s.getId())) {
+                        s.sendMessage(new TextMessage("success"));
+                    } else {
+                        s.sendMessage(new TextMessage("fail"));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 
     @Override
