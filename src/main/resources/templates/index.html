@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>콜드 브레이커</h1>
+<h3>딱딱한 분위기를 풀기위한 아이스 브레이킹 게임</h3>
+
+<form th:action="@{'/object'}" th:method="get">
+    <button>물건 가져오기</button>
+</form>
+<form th:action="@{'/object'}" th:method="get">
+    <button>그림 그리기</button>
+</form>
+<form th:action="@{'/object'}" th:method="get">
+    <button>포즈 따라하기</button>
+</form>
+
+
+<p>초대 url : null</p>
+</body>
+</html>
