@@ -28,6 +28,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
         Message message = Message.builder().sender(sessionId).receiver("all").build();
         message.newConnect();
 
+        count++;
         sessions.values().forEach(s -> {
             try {
                 if(!s.getId().equals(sessionId)) {
@@ -35,11 +36,12 @@ public class WebSocketHandler extends TextWebSocketHandler {
                     s.sendMessage(new TextMessage(sessionId + " 님이 들어오셨습니다. \n"));
 //                    System.out.println(sessionId+" 님이 들어오셨습니다.");
                 }
+                s.sendMessage(new TextMessage(count+" 명 들어왔습니다."));
+
             } catch (Exception e) {
 
             }
         });
-        count++;
 
         if (count >= 6) {
             sessions.values().forEach(s -> {
