@@ -18,7 +18,9 @@ public class Member {
 
     private String nickName;
 
-    private Long score;
+    private Long score = 0L;
 
     private Long memberCount;
+
+    private Long total = 0L;
 }
