@@ -20,7 +20,5 @@ public class Member {
 
     private Long score = 0L;
 
-    private Long memberCount;
-
     private Long total = 0L;
 }

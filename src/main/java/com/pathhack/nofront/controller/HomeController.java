@@ -27,7 +27,8 @@ public class HomeController {
     public String postNickname(@RequestParam("nickname") String nickname) {
 
         try {
-            homeService.makeSocketConnection(nickname);
+            homeService.makeSocketConnection();
+            homeService.saveUser(nickname);
         } catch (Exception e) {
             e.printStackTrace();
         }

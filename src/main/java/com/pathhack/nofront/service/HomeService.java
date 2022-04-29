@@ -35,14 +35,19 @@ public class HomeService {
         homeRepository.findOne(1L).setTotal(homeRepository.findOne(1L).getTotal() + 1L);
     }
   
-    public void makeSocketConnection(String nickname) throws Exception {
-
-        System.out.println("nickname : " + nickname);
+    public void makeSocketConnection() throws Exception {
 
         URI uri = new URI("ws://localhost:8080/room");
         WebSocketUtil util = new WebSocketUtil(uri, new Draft_6455());
 
         util.connectBlocking();
+    }
+
+    public void saveUser(String nickname) {
+        Member member = new Member();
+        member.setNickName(nickname);
+
+        homeRepository.save(member);
     }
 
   
