@@ -1,8 +1,11 @@
 package com.pathhack.nofront.handler;
 
+import com.pathhack.nofront.domain.Count;
+import com.pathhack.nofront.domain.CountRepository;
 import com.pathhack.nofront.domain.Message;
 import com.pathhack.nofront.domain.Utils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -14,9 +17,11 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class WebSocketHandler extends TextWebSocketHandler {
     private final Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
+    private int count;
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
+
         String sessionId = session.getId();
         sessions.put(sessionId, session);
 
@@ -26,13 +31,25 @@ public class WebSocketHandler extends TextWebSocketHandler {
         sessions.values().forEach(s -> {
             try {
                 if(!s.getId().equals(sessionId)) {
-                    s.sendMessage(new TextMessage((Utils.getString(message))));
-                    System.out.println(sessionId+" 님이 들어오셨습니다.");
+//                    s.sendMessage(new TextMessage((Utils.getString(message))));
+                    s.sendMessage(new TextMessage(sessionId + " 님이 들어오셨습니다. \n"));
+//                    System.out.println(sessionId+" 님이 들어오셨습니다.");
                 }
             } catch (Exception e) {
 
             }
         });
+        count++;
+
+        if (count >= 6) {
+            sessions.values().forEach(s -> {
+                try {
+                    s.sendMessage(new TextMessage("6명이 되었습니다."));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 
     @Override
@@ -47,6 +64,8 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
+        count--;
+
         String sessionId = session.getId();
 
         sessions.remove(sessionId);
