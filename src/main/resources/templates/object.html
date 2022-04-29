@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h1>콜드 브레이커</h1>
+
+
+<form th:action="@{/post}" method="post">
+    <input type="text" name="nickname" placeholder="Nickname">
+    <input type="submit" value="Join"/>
+</form>
+
+
+
+</body>
+</html>
