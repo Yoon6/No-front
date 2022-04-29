@@ -26,8 +26,9 @@ public class WebSocketHandler extends TextWebSocketHandler {
         sessions.values().forEach(s -> {
             try {
                 if(!s.getId().equals(sessionId)) {
-                    s.sendMessage(new TextMessage((Utils.getString(message))));
-                    System.out.println(sessionId+" 님이 들어오셨습니다.");
+//                    s.sendMessage(new TextMessage((Utils.getString(message))));
+                    s.sendMessage(new TextMessage(sessionId+" 님이 들어오셨습니다."));
+//                    System.out.println(sessionId+" 님이 들어오셨습니다.");
                 }
             } catch (Exception e) {
 
