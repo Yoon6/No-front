@@ -3,23 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <style>
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        #title {
+            background-color: #1266C9;
+            padding: 80px;
+        }
+        body {
+            background-color: #FEFFEB;
+        }
+
+        @font-face {
+            src: url("/fonts/KoPubDotumLight.ttf");
+            font-family: "kopub-light";
+        }
+        @font-face {
+            src: url("/fonts/KoPubDotumBold.ttf");
+            font-family: "kopub-bold";
+        }
+        @font-face {
+            src: url("/fonts/KoPubDotumMedium.ttf");
+            font-family: "kopub-medium";
+        }
+        #cold {
+            font-family: kopub-bold;
+            font-size: 55pt;
+            color: white;
+        }
+        #breaking {
+            font-family: kopub-bold;
+            font-size: 55pt;
+            color: #1266C9;
+            text-shadow: -1px 0px white, 0px 1px white, 1px 0px white, 0px -1px white;
+        }
+        #coldbreaking {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #description {
+            font-family: kopub-light;
+            font-size: 16pt;
+            text-align: center;
+            color: white;
+        }
+
+        #images {
+            text-align: center;
+        }
+
+        img {
+            margin: 10px;
+        }
+        #url {
+            text-align: center;
+            color: #1266C9;
+            font-family: kopub-medium;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        #inputUrl {
+            height: 1.3rem;
+            width: 30rem;
+            border: 2px solid #1266C9;
+            border-radius: 0.6rem;
+            background-color: #FEFFEB;
+            padding-left: 10px;
+            color: #1266C9;
+            font-family: kopub-medium;
+        }
+        #nickname {
+            height: 2rem;
+            width: 10rem;
+            border: 2px solid #1266C9;
+            border-radius: 1rem;
+            background-color: #FEFFEB;
+            padding-left: 10px;
+            color: #1266C9;
+            font-family: kopub-medium;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
 
-<h1>콜드 브레이커</h1>
-<h3>딱딱한 분위기를 풀기위한 아이스 브레이킹 게임</h3>
+<div id="title">
+    <div id="coldbreaking">
+        <span id="cold">COLD </span> <span id="breaking">BREAKING</span>
+    </div>
+    <h3 id="description">딱딱한 분위기를 풀기위한 아이스 브레이킹 게임</h3>
+</div>
 
-<form th:action="@{'/object'}" th:method="get">
-    <button>물건 가져오기</button>
-</form>
-<form th:action="@{'/object'}" th:method="get">
-    <button>그림 그리기</button>
-</form>
-<form th:action="@{'/object'}" th:method="get">
-    <button>포즈 따라하기</button>
-</form>
+<!--<div style="margin: 80px"></div>-->
+<div style="text-align: center; margin: 40px">
+    <input id="nickname" type="text" placeholder="Nickname" name="nickname"/> <br/>
+</div>
+<div id="images">
+    <a onclick="link()"><img width="250px" src="/img/img_2.png"/></a>
+    <a onclick="link()"><img width="250px" src="/img/img.png"/></a>
+    <a onclick="link()"><img width="250px" src="/img/img_1.png"/></a>
+</div>
+<!--<form th:action="@{'/object'}" th:method="get">-->
+<!--    <button>물건 가져오기</button>-->
+<!--</form>-->
+<!--<form th:action="@{'/object'}" th:method="get">-->
+<!--    <button>그림 그리기</button>-->
+<!--</form>-->
+<!--<form th:action="@{'/object'}" th:method="get">-->
+<!--    <button>포즈 따라하기</button>-->
+<!--</form>-->
 
 
-<p>초대 url : null</p>
+<div id="url">초대 url : <span><input id="inputUrl" type="text" value="www.nofront.com/Q23wweD23"/></span></div>
+
+<script>
+    function link(){
+        let elementById = document.getElementById("nickname");
+        window.location.href = "/object?nickname=" + elementById.value;
+    }
+
+</script>
 </body>
 </html>
