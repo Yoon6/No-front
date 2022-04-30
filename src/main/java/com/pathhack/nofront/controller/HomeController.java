@@ -1,12 +1,12 @@
 package com.pathhack.nofront.controller;
 
+import com.pathhack.nofront.domain.Image;
 import com.pathhack.nofront.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -57,4 +57,5 @@ public class HomeController {
 
         return "redirect:/object";
     }
+
 }

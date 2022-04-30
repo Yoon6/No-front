@@ -1,16 +1,14 @@
 package com.pathhack.nofront.service;
 
 import com.pathhack.nofront.WebSocketUtil;
-import com.pathhack.nofront.domain.Count;
-import com.pathhack.nofront.domain.CountRepository;
+import com.pathhack.nofront.domain.*;
 import org.java_websocket.drafts.Draft_6455;
-import com.pathhack.nofront.domain.HomeRepository;
-import com.pathhack.nofront.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 
 
 @Service
@@ -20,6 +18,7 @@ public class HomeService {
     
     private final HomeRepository homeRepository;
     private final CountRepository countRepository;
+    private final ImageRepository imageRepository;
 
     @Transactional
     public Long join(Member member){
@@ -59,6 +58,12 @@ public class HomeService {
             Count count = countRepository.getById(0L);
             count.setCount(count.getCount() + 1);
         }
+    }
+
+    public void saveImage(String base64) {
+        Image image = new Image();
+        image.setImage(base64.getBytes());
+        imageRepository.save(image);
     }
 
   
